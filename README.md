@@ -8,7 +8,7 @@ This report is to be utilized for educational purposes only. The owner of this d
 
 Pre-Required Components:
 
-1. Github Repository - https://github.com/SoulShroud11/Networking-Assignment/tree/main
+1. Ansible Playbook Reference - https://github.com/SoulShroud11/Networking-Assignment/blob/main/playbook.yml
 
 2. Python3-pip on Managed Node - https://linuxize.com/post/how-to-install-pip-on-ubuntu-22.04/
    
