@@ -10,13 +10,17 @@ Github Repository - https://github.com/SoulShroud11/Networking-Assignment/tree/m
 Ansible installed on Master Node - https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-22-04
 Docker installed on Managed Node - https://docs.docker.com/engine/install/ubuntu/
 
-Summary:
-
-  The deployment of Docker containers for the Apache web server and FTP services on a Managed Node, a virtual machine running Ubuntu 22.04 LTS (Jammy) is used in this assignment for demonstration. Ansible playbook (playbook.yml) running from a Master computer which is also an Ubuntu 22.04 LTS helps in the deployment process.
+Summary: The deployment of Docker containers for the Apache web server and FTP services on a Managed Node, a virtual machine running Ubuntu 22.04 LTS (Jammy) is used in this assignment for demonstration. Ansible playbook (playbook.yml) running from a Master computer which is also an Ubuntu 22.04 LTS helps in the deployment process.
+  
 Objective: Deploying FTP and Apache web servers inside docker containers is the main objective of the task given, which will guarantee efficiency and consistency throughout deployments and can be done on multiple managed nodes. For this assignment, we are utilizing only 1 managed node.
+
 Infrastructure: The Docker containers are hosted by the Managed Node. The virtual machine is set up with Docker runtime environments enabled. The Master computer serves as the control/master node for managing Ansible deployments.
+
 Docker Container Deployment: The creation and configuration of Docker containers for the Apache web server and FTP services via an Ansible playbook are covered in detail in the study. To encapsulate and compartmentalize dependencies and simplify deployment across several environments, every service is containerized.
+
 Ansible Playbook: Automating deployments is accomplished by running an Ansible playbook from the Master machine. The playbook outlines the steps needed to set up network ports, launch services on the Managed Node, and initialize Docker containers. It is the most crucial artifact within this assignment/task given.
+
 Port Configuration: The ports 80 and 21 fall within the top 1023 dedicated ports  for the Apache web server and FTP services, respectively. This guarantees uniformity, common knowledge and facilitates effective traffic control in the Docker environment.
+
 Benefits: The deployment process is made predictable, scalable, and less error-prone by utilizing Docker containers and Ansible automation. It improves flexibility and makes it easier to quickly offer services across a range of infrastructure environments and manage highly scalable, highly redundant deployment activities across multiple managed nodes.
 
