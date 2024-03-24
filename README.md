@@ -1,7 +1,9 @@
 Introduction: 
 
-  The objective of this repoistory is to offer insight and function as a SOP - Standard Operating Procedure with respect to a specific task. The task at hand is to deploy docker containers onto a managed node with the ability to run services like an Apache web server and FTP (File Transfer Protocol) The deployment should take place via Ansible.
+The objective of this repoistory is to offer insight and function as a SOP - Standard Operating Procedure with respect to a specific task. The task at hand is to deploy docker containers onto a managed node with the ability to run services like an Apache web server and FTP (File Transfer Protocol) The deployment should take place via Ansible.
+  
 Ansible is an open source IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes. - “Redhat.com, Learning ansible basics write up.”
+
 This report is to be utilized for educational purposes only. The owner of this document is simply writing this report with respect to a research project/assignment conducted at Dublin Business School for their Masters in Cyber Security course, January 2024. Changes to this document may be necessary in near future as per the updates and versions of the pre requisites used in this assignment.
 
 Pre-Required Components:
