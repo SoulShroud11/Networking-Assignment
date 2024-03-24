@@ -9,12 +9,14 @@ This report is to be utilized for educational purposes only. The owner of this d
 Pre-Required Components:
 
 1. Github Repository - https://github.com/SoulShroud11/Networking-Assignment/tree/main
-   
-2. Ansible installed on Master Node - https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-22-04
-   
-3. Docker installed on Managed Node - https://docs.docker.com/engine/install/ubuntu/
 
-4. OpenSSH on master and managed Node -
+2. Python3-pip on Managed Node - https://linuxize.com/post/how-to-install-pip-on-ubuntu-22.04/
+   
+3. Ansible installed on Master Node - https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-22-04
+   
+4. Docker installed on Managed Node - https://docs.docker.com/engine/install/ubuntu/
+
+5. OpenSSH on master and managed Node -
 https://hostman.com/tutorials/how-to-install-and-configure-ssh-on-ubuntu-22-04/
 
 Summary: The deployment of Docker containers for the Apache web server and FTP services on a Managed Node, a virtual machine running Ubuntu 22.04 LTS (Jammy) is used in this assignment for demonstration. Ansible playbook (playbook.yml) running from a Master computer which is also an Ubuntu 22.04 LTS helps in the deployment process.
