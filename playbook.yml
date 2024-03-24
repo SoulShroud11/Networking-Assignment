@@ -1,0 +1,110 @@
+---
+- hosts: Managed_Node1
+  become: yes
+  tasks:
+    - name: Update apt package cache
+      apt:
+        update_cache: yes
+      become: yes
+
+    - name: #Install required packages
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        state: present
+      become: yes
+
+    - name: Add Docker GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+      become: yes
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+        state: present
+      become: yes
+
+    - name: Install Docker
+      apt:
+        name: docker-ce
+        state: present
+      become: yes
+
+    - name: Start and enable Docker service
+      service:
+        name: docker
+        enabled: yes
+        state: started
+      become: yes
+
+    - name: Install docker-py Python library
+      pip:
+        name: docker
+      become: yes
+
+    - name: Pull a Docker image
+      docker_image:
+        name: httpd
+        tag: latest
+        source: pull
+        
+    - name: Create a persistent volume directory
+      file:
+        path: /home/nick/pv
+        state: directory
+
+    - name: Copy HTML code to the directory
+      copy:
+        src: /home/nick/index.html
+        dest: /home/nick/
+
+    - name: Create a custom Docker network for Apache
+      docker_network:
+        name: apache-network
+        state: present
+        driver: bridge
+
+    - name: Configure Networking for Apache Docker container
+      docker_container:
+        name: apache-server
+        image: httpd
+        state: started
+        exposed_ports:
+          - '80'
+        ports:
+          - "8080:80"
+        volumes:
+          - /home/nick:/usr/local/apache2/htdocs
+        networks:
+          - name: apache-network
+        hostname: apache-server
+
+    - name: Create a custom Docker network for FTP
+      docker_network:
+        name: ftp-network
+        state: present
+        driver: bridge
+
+    - name: Configure Networking for FTP Docker container
+      docker_container:
+        name: ftp-server
+        image: stilliard/pure-ftpd
+        state: started
+        ports:
+          - "21:21"
+        networks:
+          - name: ftp-network
+        env:
+          FTP_PASSIVE_PORTS: "21000:21100"
+        hostname: ftp-server
+
+    - name: Ensure FTP service is accessible from the host
+      wait_for: 
+        host: 192.168.1.31
+        port: 21
+        state: started
